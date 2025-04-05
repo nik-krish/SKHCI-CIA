@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Neon Glow Theme */
+:root {
+  --neon-pink: #ff2a6d;
+  --neon-blue: #05d9e8;
+  --neon-purple: #d300c5;
+  --neon-green: #00ff9d;
+  --dark-bg: #0f1923;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: #e0e0e0;
+}
+
+/* Cyberpunk-inspired Cell */
+.cell {
+  display: inline-block;
+  width: 48%;
+  margin: 1%;
+  padding: 1.5rem;
+  background: rgba(15, 25, 35, 0.7);
+  border: 1px solid var(--neon-blue);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.cell:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(5, 217, 232, 0.5);
+}
+
+/* Holographic Circle */
+.circle {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--neon-pink) 0deg,
+    var(--neon-purple) 120deg,
+    var(--neon-blue) 240deg,
+    var(--neon-green) 360deg
+  );
+  box-shadow: 0 0 30px rgba(255, 42, 109, 0.6);
+  animation: rotate-hue 8s linear infinite;
+}
+
+@keyframes rotate-hue {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Digital Enter Animation */
+.digital-in {
+  animation: digital-in 1.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+@keyframes digital-in {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cyber Form */
+.form-container {
+  background: rgba(15, 25, 35, 0.9);
+  border: 1px solid var(--neon-purple);
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(211, 0, 197, 0.4);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+/* Glitch Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--neon-pink), var(--neon-blue));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 25, 35, 0.8);
+}
+
+/* Binary Loader */
+.binary-loader {
+  display: flex;
+  gap: 12px;
+}
+
+.binary-digit {
+  width: 8px;
+  height: 30px;
+  background: var(--neon-green);
+  animation: binary-flash 1.4s infinite ease-in-out;
+  opacity: 0.3;
+}
+
+.binary-digit:nth-child(1) { animation-delay: 0.1s; }
+.binary-digit:nth-child(2) { animation-delay: 0.3s; }
+.binary-digit:nth-child(3) { animation-delay: 0.5s; }
+.binary-digit:nth-child(4) { animation-delay: 0.7s; }
+.binary-digit:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes binary-flash {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+    box-shadow: 0 0 10px var(--neon-green);
+  }
+}
+
+/* Neon Text Effect */
+.neon-text {
+  text-shadow: 0 0 5px var(--neon-blue), 
+               0 0 10px var(--neon-blue),
+               0 0 20px var(--neon-blue);
+}
+
+/* Grid Pulse Effect */
+.grid-pulse {
+  animation: grid-pulse 4s infinite alternate;
+}
+
+@keyframes grid-pulse {
+  0% {
+    box-shadow: 0 0 10px var(--neon-blue);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--neon-purple);
+  }
+  100% {
+    box-shadow: 0 0 15px var(--neon-pink);
+  }
+}
+
+/* Cyber Button */
+.cyber-btn {
+  background: transparent;
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.cyber-btn:hover {
+  text-shadow: 0 0 5px var(--neon-green);
+  box-shadow: 0 0 15px var(--neon-green);
+}
+
+.cyber-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.cyber-btn:hover::before {
+  left: 100%;
+}
